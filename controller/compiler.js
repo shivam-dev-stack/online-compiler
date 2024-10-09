@@ -35,11 +35,13 @@ export const run = async(req,res) =>{
     
     let command = ``;
     const rand = Math.floor(Math.random() * 10000) + 1;
-    let fileName = `${folder.code}${type}_${(Date.now())}_${rand}.py`;
+    let fileName = '';
 
     if(type=="py"){
+        fileName = `${folder.code}${type}_${(Date.now())}_${rand}.py`;
         command = `python ${fileName}`
     }else if(type=="js"){
+        fileName = `${folder.code}${type}_${(Date.now())}_${rand}.js`;
         command = `node ${fileName}`
     }
 
