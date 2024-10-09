@@ -1,11 +1,12 @@
 import connect from "../dbConnect.js";
-import * as fs from 'fs';
+import * as fs from 'fs'; // fs package has no fs module so full package imported
 import { createRequire } from 'module';
 import { folder } from "../config/config.js";
 
-const require = createRequire(import.meta.url);
-const {exec} = require('child_process');
+const require = createRequire(import.meta.url); // imported as error in importing a package
+const {exec} = require('child_process'); // child process imported as require
 
+// compiler language list only for dev
 export const compiler = async(req,res)=>{
     const query = "select * from language"
     
@@ -24,7 +25,7 @@ export const compiler = async(req,res)=>{
     }
 };
 
-
+// compile or run program on shell
 export const run = async(req,res) =>{
     
     let {code,type} = req.body
